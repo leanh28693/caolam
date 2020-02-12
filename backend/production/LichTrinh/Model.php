@@ -21,10 +21,10 @@ function getAll(){
 
     // select all query
    // $query = "SELECT * FROM ".$this->table_name." ORDER BY id DESC" ;
-   $query = " SELECT l.id,l.start_time,x.license_plates as license_plates,t.name as tuyen,c.start_time as gio,l.id_tuyen,l.id_chuyen FROM quanlynhaxe.quanly_lichtrinh l
-    left join quanlynhaxe.quanly_xe x on l.id_xe = x.id
-    left join quanlynhaxe.quanly_chuyen_xe c on l.id_chuyen = c.id
-    left join quanlynhaxe.quanly_tuyen_xe t on l.id_tuyen = t.id 
+   $query = " SELECT l.id,l.start_time,x.license_plates as license_plates,t.name as tuyen,c.start_time as gio,l.id_tuyen,l.id_chuyen FROM quanly_lichtrinh l
+    left join quanly_xe x on l.id_xe = x.id
+    left join quanly_chuyen_xe c on l.id_chuyen = c.id
+    left join quanly_tuyen_xe t on l.id_tuyen = t.id 
     order by l.id desc "; 
     // prepare query statement
     $stmt = $this->conn->prepare($query);
@@ -36,10 +36,10 @@ function getAll(){
 function getOneByID($id){
     // select all query
     //$query = "SELECT * FROM ".$this->table_name." WHERE id = ".$id."" ;
-    $query = " SELECT l.id,l.start_time,l.id_xe,l.id_chuyen,l.id_tuyen,l.bus_type,l.id_cui_ve,x.license_plates as license_plates,t.name as tuyen,FROM_UNIXTIME(l.start_time/1000, '%d-%m-%Y') as date,c.start_time as gio FROM quanlynhaxe.quanly_lichtrinh l
-    left join quanlynhaxe.quanly_xe x on l.id_xe = x.id
-    left join quanlynhaxe.quanly_chuyen_xe c on l.id_chuyen = c.id
-    left join quanlynhaxe.quanly_tuyen_xe t on l.id_tuyen = t.id 
+    $query = " SELECT l.id,l.start_time,l.id_xe,l.id_chuyen,l.id_tuyen,l.bus_type,l.id_cui_ve,x.license_plates as license_plates,t.name as tuyen,FROM_UNIXTIME(l.start_time/1000, '%d-%m-%Y') as date,c.start_time as gio FROM quanly_lichtrinh l
+    left join quanly_xe x on l.id_xe = x.id
+    left join quanly_chuyen_xe c on l.id_chuyen = c.id
+    left join quanly_tuyen_xe t on l.id_tuyen = t.id 
     where l.id = ".$id."
     order by l.id desc "; 
     // prepare query statement

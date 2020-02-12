@@ -26,14 +26,19 @@ class ChooseOption extends Component {
         super(props)
     
         this.state = {
-             date: new Date()
+             date: new Date(),
+             active:false
         }
     }
     
     checked = (e) =>{
         this.props.checked(e.target.value)
         //toggleloading(false)
+        this.setState({active:false})
       }
+    actived = () =>{
+        this.setState({active:false})
+    } 
     handleSubmit = event =>{
         event.preventDefault();
         console.log(event.target.radio1)
@@ -44,11 +49,11 @@ class ChooseOption extends Component {
         }else{
             this.props.chooseOption([event.target.radio2.value,event.target.radio1.value,this.state.date])
         }
-        
+        this.setState({active:true})
        
     }
     onChange = (date) =>{
-        this.setState({date})
+        this.setState({date,active:false})
     }  
     render() {
         const { classes } = this.props;
@@ -56,7 +61,7 @@ class ChooseOption extends Component {
             return  (row[3] != "")?<div className="col-6" key={index}>
                     <FormGroup check>
                       <Label check>
-                        <Input type="radio" name="radio1" id="radio1" defaultChecked={false} value={row[0]}/>{' '}
+                        <Input type="radio" name="radio1" id="radio1" defaultChecked={false} value={row[0]} onChange={(e)=>this.actived()}/>{' '}
                           {row[3]}
                       </Label>
                     </FormGroup>
@@ -122,7 +127,7 @@ class ChooseOption extends Component {
                         </Card>
                         
                         </GridItem>
-                        <Button color="primary" className="col align-self-end" type="submit">Tìm Kiếm</Button>
+                        <Button color="primary" className="col align-self-end" type="submit" disabled={this.state.active}>Tìm Kiếm</Button>
                     </GridContainer>
                     
                     </div>

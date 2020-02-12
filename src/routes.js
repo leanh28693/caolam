@@ -40,11 +40,14 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 import AddBus from "views/TableList/AddBus";
 import EditBus from "views/TableList/EditBus";
 
+import Label from "views/Label/Label";
+
 import AddChuyen from "views/chuyenxe/AddChuyen";
 import EditChuyen from "views/chuyenxe/EditChuyen";
 import Printer from "views/lichtrinh/Printer";
 import Customers from "views/lichtrinh/Customers";
 import Build from "@material-ui/icons/Build";
+import LabelIcon from '@material-ui/icons/Label';
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 
@@ -73,6 +76,14 @@ const dashboardRoutes = [
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: LichTrinh,
+    layout: "/admin"
+  },
+  {
+    path: "/control-label",
+    name: "Quản lý nhãn",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: LabelIcon,
+    component: Label,
     layout: "/admin"
   },
   {
@@ -189,6 +200,7 @@ component:Customers ,
 hidesidebar:true,
 layout: "/admin"
 }
+
 ];
 
 export default dashboardRoutes;

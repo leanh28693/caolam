@@ -23,17 +23,17 @@ export default function Footer(props) {
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#company" className={classes.block}>
+              <a href="https://marhubvn.com" className={classes.block}>
                 Company
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#portfolio" className={classes.block}>
+              <a href="https://marhubvn.com" className={classes.block}>
                 Portfolio
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="#blog" className={classes.block}>
+              <a href="#https://marhubvn.com" className={classes.block}>
                 Blog
               </a>
             </ListItem>
@@ -43,11 +43,11 @@ export default function Footer(props) {
           <span>
             &copy; {1900 + new Date().getYear()}{" "}
             <a
-              href="https://www.creative-tim.com?ref=mdr-footer"
+              href="https://marhubvn.com"
               target="_blank"
               className={classes.a}
             >
-              Creative Tim
+              MARHUB
             </a>
             , made with love for a better web
           </span>

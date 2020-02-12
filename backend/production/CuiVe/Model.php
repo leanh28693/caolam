@@ -123,18 +123,32 @@ try{
 function create(){
 
 // query to insert record
+// $query = "INSERT INTO
+//             " . $this->table_name . "
+//         SET
+//         id_lichtrinh=:id_lichtrinh, 
+//         start_time=:start_time, 
+//         id_tuyen=:id_tuyen, 
+//         id_chuyen=:id_chuyen, 
+//         seat_num=:seat_num, 
+//         label=:label, 
+//         customer_info=:customer_info";
 $query = "INSERT INTO
             " . $this->table_name . "
         SET
-        id=:id, id_lichtrinh=:id_lichtrinh, start_time=:start_time, id_tuyen=:id_tuyen, id_chuyen=:id_chuyen, seat_num=:seat_num, label=:label, customer_info=:customer_info";
-
+        start_time=:start_time, 
+        id_tuyen=:id_tuyen, 
+        id_chuyen=:id_chuyen, 
+        seat_num=:seat_num, 
+        label=:label, 
+        customer_info=:customer_info";
 // prepare query
 
 $stmt = $this->conn->prepare($query);
 
 // sanitize
-$this->id=htmlspecialchars(strip_tags($this->id));
-$this->id_lichtrinh=htmlspecialchars(strip_tags($this->id_lichtrinh));
+//$this->id=htmlspecialchars(strip_tags($this->id));
+//$this->id_lichtrinh=htmlspecialchars(strip_tags($this->id_lichtrinh));
 $this->start_time=htmlspecialchars(strip_tags($this->start_time));
 $this->id_tuyen=htmlspecialchars(strip_tags($this->id_tuyen));
 $this->id_chuyen=htmlspecialchars(strip_tags($this->id_chuyen));
@@ -143,15 +157,16 @@ $this->label=htmlspecialchars(strip_tags($this->label));
 $this->customer_info=htmlspecialchars(strip_tags($this->customer_info));
 
 // bind values
-$stmt->bindParam(":id", $this->id);
-$stmt->bindParam(":id_lichtrinh", $this->id_lichtrinh);
+//$stmt->bindParam(":id", $this->id);
+//$stmt->bindParam(":id_lichtrinh", $this->id_lichtrinh);
 $stmt->bindParam(":start_time", $this->start_time);
 $stmt->bindParam(":id_tuyen", $this->id_tuyen);
 $stmt->bindParam(":id_chuyen", $this->id_chuyen);
 $stmt->bindParam(":seat_num", $this->seat_num);
 $stmt->bindParam(":label", $this->label);
 $stmt->bindParam(":customer_info", $this->customer_info);
-//var_dump($stmt);die;
+//var_dump($stmt->execute());
+//var_dump($this);die;
 // execute query
 if($stmt->execute()){
     return true;

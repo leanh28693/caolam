@@ -75,7 +75,15 @@ if($stmt->execute()){
     return true;
 }
 return false;
-}          
+}
+function updateLabel($label,$id){
+        $query = "UPDATE ".$this->table_name." SET label = '".$label."' WHERE id = ".$id.";" ;
+    $stmt = $this->conn->prepare($query);
+    if($stmt->execute()){
+        return true;
+    }
+    return false;
+    }           
 function AddCustommerByID($id){
     // select all query
         $query = "UPDATE ".$this->table_name." SET customer_info = '".json_encode($this->customer_info,JSON_UNESCAPED_UNICODE )."' , status = 1 WHERE id = ".$id."" ;

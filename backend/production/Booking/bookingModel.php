@@ -138,29 +138,35 @@ $query = "INSERT INTO
         id_xe=:id_xe,  
         id_tuyen=:id_tuyen, 
         id_chuyen=:id_chuyen,
-        bus_type=:bus_type,
-        id_cui_ve=:id_cui_ve
-        ;";
-// prepare query
+        bus_type=:bus_type";
+// $query = "INSERT INTO
+//             " . $this->table_name . "
+//         SET
+//         start_time=" . $this->start_time . ",
+//         id_xe=" . $this->id_xe . ",  
+//         id_tuyen=" . $this->id_tuyen . ", 
+//         id_chuyen=" . $this->id_chuyen . ",
+//         bus_type=" . $this->bus_type . "";
+
 $stmt = $this->conn->prepare($query);
-// sanitize
+// // sanitize
 $this->start_time=htmlspecialchars(strip_tags($this->start_time));
 $this->id_xe=htmlspecialchars(strip_tags($this->id_xe));
 $this->id_tuyen=htmlspecialchars(strip_tags($this->id_tuyen));
 $this->id_chuyen=htmlspecialchars(strip_tags($this->id_chuyen));
 $this->bus_type=htmlspecialchars(strip_tags($this->bus_type));
-$this->id_cui_ve=htmlspecialchars(strip_tags($this->id_cui_ve));
+//$this->id_cui_ve=htmlspecialchars(strip_tags($this->id_cui_ve));
 
 
-// bind values
+// // bind values
 $stmt->bindParam(":start_time", $this->start_time);
 $stmt->bindParam(":id_xe", $this->id_xe);
 $stmt->bindParam(":id_tuyen", $this->id_tuyen);
 $stmt->bindParam(":id_chuyen", $this->id_chuyen);
 $stmt->bindParam(":bus_type", $this->bus_type);
-$stmt->bindParam(":id_cui_ve", $this->id_cui_ve);
-
-//var_dump($stmt);die;
+//$stmt->bindParam(":id_cui_ve", $this->id_cui_ve);
+//var_dump($this);
+//var_dump($stmt->execute());die;
 // execute query
 //var_dump($stmt);die;
 if($stmt->execute()){
